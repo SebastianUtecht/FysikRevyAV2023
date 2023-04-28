@@ -1,0 +1,179 @@
+
+.facebook, .google {
+    background-color: white;
+    border: solid gray 2px;
+    border-radius: 5px;
+    color: black;
+    font-family: 'Helvetica', arial, sans-serif;
+    font-size: 80%;
+    height: auto;
+    width: 80%;
+    max-width:80%;
+    text-align: left;
+    line-height: 95%;
+    margin-top: 150px;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 70px;
+    left: 10%;
+    overflow: hidden;
+    padding-right: 5px;
+    line-height: 110%;
+    /* display:none; */
+}
+.facebook.last-build {
+    display: initial;
+}
+.facebook p {
+    text-align: left;
+}
+.facebook > *, .facebook > p {
+    margin-left: 20px;
+    margin-bottom: 0px;
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: #7f8eab;
+    padding-left: 10px;
+    margin-top: -1px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+    opacity: 1;
+    transition: transform/* ,opacity */ .2s ease-out;
+}
+.facebook > *:first-child, .facebook > p:first-child {
+    margin-left: 10px;
+    border-left-width: 0px;
+    border-left-style: none;
+    min-height: 20px;
+    margin-top: 2px;
+    padding-left: 40px;
+    text-indent: -45px;
+    /* padding-top: 10px; */
+}
+.facebook > *:first-child:before, .facebook > p:first-child:before {
+    content: url(Fb.svg);
+    margin-left: 0px;
+    margin-right: 5px;
+/* position: relative;
+		left: -35px;
+		top: -25px; */
+}
+.facebook > *.to-build {
+    opacity: 0;
+    transform: translateY(15px);
+    height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.facebook .to-build {
+    /* display: none; */
+}
+.google {
+    /* display: none; */
+    width: 100%;
+    left: 0px;
+    margin-left: 10%;
+    overflow: visible;
+    border: none;
+    background: none;
+}
+.google.last-build {
+    display: initial;
+    /* position: absolute; */
+    /* bottom: 100px; */
+}
+.google > * {
+    background: white;
+    border: solid gray 1px;
+    border-radius: 10px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    padding: 5px;
+    height: 20px;
+    /* padding-left: 25px; */
+    color: rgba(0,0,0,0);
+    text-align: left;
+    margin-bottom: 0px;
+    margin-top: -25px;
+    overflow: hidden;
+    transition: trnasform, opacity,  color
+		.3s      , .3s    ,  .3s
+		ease-out , ease-out, ease-out;
+}
+.google > *.to-build {
+    transform: translateY(10px);
+    /* height: 0px;
+		margin: 0px;
+		padding: 0px;
+		border: 0px; */
+    /* display: none; */
+    height: 13px;
+    opacity: 0;
+    color: black;
+}
+.google > *.last-build {
+    height: initial;
+    margin-bottom: inherit;
+    color: black;
+}
+.google > *:before {
+    content: url(1e100.svg);
+    margin-right: 20px;
+    float: left;
+    /* transition: opacity .1s ease-out; */
+}
+.google > *:not(.last-build):before {
+    opacity: 0;
+}
+.google.docile, .facebook.docile {
+    position: static;
+    margin: 20px;
+}
+.google.docile > * {
+    margin-top: inherit;
+    color: black;
+    min-height: 30px;
+}
+.google.docile > *:before {
+    opacity: 1;
+}
+.nsa {
+    padding-top: 90px;
+    font-family: "BKM-t", Courier New, monospace;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background: url("images/nsa.svg") no-repeat center top;
+    background-size: 240px 240px;
+    
+}
+.nsa.docile {
+    padding-top: 0px;
+    height: initial;
+    background: none;
+}
+.nsa.last-build {
+    display: flex;
+}
+.nsa > * {
+    text-align: left;
+    text-indent: -1em;
+    padding-left: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    /* display: none; */
+}
+.nsa > p > * {
+    transition: opacity .05s ease-out;
+}
+.nsa > *.last-build {
+    display:block;
+}
+.nsa > *:before {
+    content: '> ';
+    /* margin-right: 1em; */
+}

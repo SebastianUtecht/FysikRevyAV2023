@@ -1,0 +1,15 @@
+{
+  "name": "revy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fysikrevy/av-demo": "^1.0.1",
+    "@fysikrevy/av-main": "^1.1.4"
+  }
+}

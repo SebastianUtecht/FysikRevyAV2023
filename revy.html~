@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+	<title>Fysikrevy™ Demo</title>
+	<meta charset="utf-8" />
+	<script type="text/javascript" src="AV-script.js"></script>
+        <style type="text/css" >
+         body {
+             background: black;
+             overflow:hidden;
+         }
+         
+         body:not(.loaded) > * {
+             display: none;
+         }
+        </style>
+    </head>
+    <body>
+	<section class="slides layout-regular" >
+	    <article>
+            </article>
+
+            <article class="vidframe build" id="bandintro" >
+                <video preload="none" >
+                    <source src="fisk/Bandvideo3.mp4" type="video/mp4" />
+                    <track src="fisk/Bandintro.vtt" 
+			   kind="subtitles" 
+			   srclang="da-DK" default/>
+                </video>
+            </article>
+
+            <article id="Sang" class="build lyr">
+                <p>Tekster...</p>
+            </article>
+
+	</section>
+	
+    </body>
+</html>
