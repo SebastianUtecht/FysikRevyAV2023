@@ -1,0 +1,912 @@
+
+/* # BASIC SETUP ------------------------------------------------------------ */
+
+::selection {
+  color: white;
+  background-color: #ff0000;
+  text-shadow: none;
+}
+
+@font-face{
+  font-family: 'BKM';
+  src: local('cmunss'),
+       local('CMU Sans Serif'),
+       url(/node_modules/@fysikrevy/woff/cmunss.otf) format('opentype'),
+       url(/node_modules/@fysikrevy/woff/cmunss.woff) format('woff'),
+       url(woff/cmunss.woff) format('woff'),
+       url(otf/cmunss.otf) format('opentype');
+}
+
+@font-face{
+  font-family: 'BKM-t';
+  src: local('CMU Typewriter Text Bold'),
+       local('cmuntb'),
+       url(/node_modules/@fysikrevy/woff/cmuntb.woff) format('woff'),
+       url(woff/cmuntb.woff) format('woff'),
+       url(otf/cmuntb.otf) format('opentype');
+}
+
+@font-face{
+  font-family: 'BKM';
+  src: local('cmunsi'),
+       local('CMU Sans Serif Medium Oblique'),
+       url(/node_modules/@fysikrevy/woff/cmunsi.woff) format('woff'),
+       url(woff/cmunsi.woff) format('woff'),
+       url(otf/cmunsi.otf) format('opentype');
+  font-style: oblique;
+}
+
+@font-face{
+    font-family: 'BKM';
+    src: local('cmunsx'),
+         local('CMU Sans Serif Bold'),
+         url(/node_modules/@fysikrevy/woff/cmunsx.woff) format('woff'),
+         url(woff/cmunsx.woff) format('woff'),
+         url(otf/cmunsx.otf) format('opentype');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: 'BKM-r';
+    src: url(/node_modules/@fysikrevy/woff/cmunbx.woff) format('woff');
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  display: block !important;
+
+  height: 100%;
+  min-height: 740px;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: black;
+
+  font-family: 'BKM', 'Helvetica', Arial, sans-serif;
+  font-size: 50px;
+  color: white;
+}
+
+/* # HOW SLIDES ------------------------------------------------------------- */
+
+.slides {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  
+  position: absolute;
+
+  transform: translate3d(0, 0, 0);
+}
+
+.slides > article {
+  display: none;
+
+  position: absolute;
+  overflow: hidden;
+
+  left: 50%;
+  top: 50%;
+
+  padding: 0px;
+
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  width: 521px;
+  height: 290px;
+
+  margin-left: -300px;
+  margin-top: -171px;
+  
+  transform: scale(3.6);
+
+  background-color: black;
+
+  color: white;
+  font-size: 25px;
+  line-height: 29px;
+  white-space: normal;
+}
+
+.slides > .vidframe {
+    width: 1592px;
+    height: 900px;
+    margin-left: -803px;
+    margin-top: -454px;
+    transform: scale(1.2);
+    /* color: red; */
+}
+
+.blackout .slides article{
+  opacity: 0;
+}
+
+.slides.layout-widescreen > article {
+  margin-left: -550px;
+  width: 1100px;
+}
+.slides.layout-faux-widescreen > article {
+  margin-left: -550px;
+  width: 1100px;
+  
+  padding: 40px 160px;
+}
+.slides > article.gone {
+  width: 100%;
+  height: 100%;
+
+  left: 0%;
+  top: 0%;
+
+  margin-left: 0px;
+  margin-top: 0px;
+  
+  padding: 0px 0px;
+  
+  background: rgba(0,0,0,0);
+  
+  border: none;
+}
+
+.slides > .snug {
+  width: 900px;
+  margin-left: -450px;
+}
+.slides.layout-widescreen > article:not(.nobackground):not(.biglogo),
+.slides.layout-faux-widescreen > article:not(.nobackground):not(.biglogo) {
+  background-position-x: 0, 840px;
+}
+
+.slides > article.far-next {
+/*  display: block;
+*/
+}
+.slides > article.next {
+/*  display: block;
+*/
+}
+.slides > article.current {
+  display: block;
+
+}
+
+.slides > article.past {
+/*  display: block;
+*/
+}
+.slides > article.far-past {
+/*  display: block;
+*/
+}
+
+.slides.layout-widescreen > article.far-past,
+.slides.layout-faux-widescreen > article.far-past {
+  display: block;
+  transform: translate(-2260px);
+  -o-transform: translate(-2260px);
+  -moz-transform: translate(-2260px);
+  -webkit-transform: translate3d(-2260px, 0, 0);
+}
+.slides.layout-widescreen > article.past,
+.slides.layout-faux-widescreen > article.past {
+  display: block;
+  transform: translate(-1130px);
+  -o-transform: translate(-1130px);
+  -moz-transform: translate(-1130px);
+  -webkit-transform: translate3d(-1130px, 0, 0);
+}
+.slides.layout-widescreen > article.current,
+.slides.layout-faux-widescreen > article.current {
+  display: block;
+  transform: translate(0);
+  -o-transform: translate(0);
+  -moz-transform: translate(0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.slides.layout-widescreen > article.next,
+.slides.layout-faux-widescreen > article.next {
+  display: block;
+  transform: translate(1130px);
+  -o-transform: translate(1130px);
+  -moz-transform: translate(1130px);
+  -webkit-transform: translate3d(1130px, 0, 0);
+}
+.slides.layout-widescreen > article.far-next,
+.slides.layout-faux-widescreen > article.far-next {
+  display: block;
+  transform: translate(2260px);
+  -o-transform: translate(2260px);
+  -moz-transform: translate(2260px);
+  -webkit-transform: translate3d(2260px, 0, 0);
+}
+
+/* # HIGH SLIDES ------------------------------------------------------------ */
+
+.slides > article.span {
+    width: 1000px;
+    height: 300px;
+
+    color: black;
+    padding-top: 100px;
+    font-size: 300%;
+    
+    transform: scale(2.5);
+    margin-left: -500px;
+
+    /* These are some test patterns */
+    /* ** */
+    /* background: linear-gradient(10deg, #FFC0CB 50%, #00FFFF 50%); */
+    /*     background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%); */
+    /* background-size: 60px 60px; */
+    /* background-position: 0 0, 0 30px, 30px -30px, -30px 0px; */
+}
+
+.right .slides > article.span {
+    transform:      scale(2.25)
+                    scaleX(1.2)
+                    translateX(-337px)
+                    translateY(-43px)
+                    rotate(19deg)
+                    skewY(-2deg)
+                    perspective(400px)
+                    rotateY(8deg);
+}
+
+.left .slides > article.span {
+    transform: scale(2.15)
+                    scaleX(1.2)
+                    translateX(322px)
+                    translateY(-49px)
+                    rotate(-18deg)
+                    skewY(2deg)
+                    perspective(400px)
+                    rotateY(-8deg);
+}
+
+.mimicking video {
+    margin-top: -200px;
+}
+
+/* # GENERAL STYLE ---------------------------------------------------------- */
+
+.sc {
+    font-size: 70%;
+}
+
+b {
+  font-weight: bold;
+}
+
+.blue {
+  color: rgb(0, 102, 204);
+}
+.yellow {
+  color: rgb(255, 211, 25);
+}
+.green {
+  color: rgb(0, 138, 53);
+}
+.red {
+  color: rgb(255, 0, 0);
+}
+.black {
+  color: black;
+}
+.white {
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;  
+}
+
+code {
+  font-family: 'BKM-t', 'Courier New', monospace;
+  /* font-size: 105%; */
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 60px;
+
+  padding: 5px;
+  margin: 0;
+  margin-top: 40%;
+  padding-right: 40px;
+  padding-left: 10%;
+  
+  border-radius: 10px;
+  
+  background: rgba(0, 0, 0, .4);
+
+  font-weight: bold;
+
+  letter-spacing: -3px;
+
+  color: white;
+}
+
+h2 {
+  font-size: 45px;
+  line-height: 45px;
+
+  position: absolute;
+  bottom: 150px;
+
+  padding: 0;
+  margin: 0;
+  padding-right: 40px;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+
+  color: rgb(51, 51, 51);
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 36px;
+  text-align: right;
+  font-weight: bold;
+
+  padding: 0;
+  margin: 0;
+  padding-right: 40px;
+
+  letter-spacing: -1px;
+
+  color: rgb(51, 51, 51);
+}
+
+article.snug {
+  padding: 0px 0px;
+}
+
+pre {
+  font-family: BKM-t, 'Courier New', monospace;
+  
+  font-size: 18px;
+  line-height: 28px;
+  padding: 5px 10px;
+  
+  letter-spacing: -1px;
+
+  margin-bottom: 40px;
+
+  color: black;
+  background: rgb(240, 240, 240);
+  border: 1px solid rgb(224, 224, 224);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .1);
+  
+  overflow: hidden;
+}
+
+pre .const {
+  color: DarkOrchid;
+}
+
+pre .type {
+  color: Green;
+}
+
+pre .name {
+  color : GoldenRod;
+}
+
+pre .string {
+  color: DarkSalmon;
+}
+
+iframe {
+  width: 100%;
+
+  height: 620px;
+
+  background: white;
+  border: 1px solid rgb(192, 192, 192);
+  margin: -1px;
+  /*box-shadow: inset 0 2px 6px rgba(0, 0, 0, .1);*/
+}
+
+h3 + iframe {
+  margin-top: 40px;
+  height: 540px;
+}
+
+video {
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+video::cue {
+  font-family: 'BKM', 'Helvetica', Arial, sans-serif;
+  font-size: 60px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgba(0,0,0,.6);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+table.small {
+  width: auto;
+}
+
+.faint {
+  opacity: .5;
+}
+
+.grad-overlay {
+  padding-top: 30px;
+  z-index: 50;
+  height: 60px;
+  margin-top: -89px;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+/* ## For the TeX and LaTeX typemark ---                                      */
+/* The corresponding html is 
+   "<span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>" 
+     or
+   "<span class="tex">T<sub>E</sub>X</span>"*/
+.tex sub, .latex sub, .latex sup {
+  text-transform: uppercase;
+}
+
+.tex sub, .latex sub {
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+}
+
+.tex, .latex, .tex sub, .latex sub {
+  font-size: 1em;
+}
+
+.latex sup {
+  font-size: 0.85em;
+  vertical-align: 0.15em;
+  margin-left: -0.36em;
+  margin-right: -0.15em;
+}
+
+p.year b {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+p.year em {
+}
+
+article:not(.lyr) p.year {
+    margin-top: 50px;
+}
+
+/* # LYR -------------------------------------------------------------------- */
+
+p, .lyr textarea, .lyr > span {
+  margin: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.lyr > span {
+    display: block;
+    margin-top: 50px;
+}
+
+.lyr > * {
+  padding-top: 0;
+  margin-top: 80px;
+  margin-bottom: -250px;
+  background: blak;
+  height: 170px;
+}
+
+.lyr.build > * {
+    opacity: 0;
+}
+
+.lyr textarea {
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: auto;
+    margin-top: -2px;
+    margin-left: -2px;
+    white-space: normal;
+}
+
+.lyr > div.pagediv {
+    margin-bottom: -230px;
+}
+
+.lyr > * > p {
+  margin: 0;
+}
+
+.lyr .display {
+    border: 2px;
+    border-color: white;
+    border-style: solid;
+    width: 70%;
+    height: 1.5em;
+    font-size: 150%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.lyr > .last-build, .mimicking.build.lyr > * {
+  opacity: 1;
+}
+h
+.lyr > div > p.to-build {
+    /* This one may not be necessary... */
+  opacity: 1;
+  width: 0px;
+}
+
+/* # BOXES AND ALIGNMENT ---------------------------------------------------- */
+
+.centered {
+  text-align: center;
+}
+
+div.to-build {
+    opacity: 0;
+}
+
+img.centered {
+  margin: 0 auto;
+  display: block;
+}
+
+div.pagediv {
+  height:100%;
+  width:100%;
+  text-align:center;
+  margin-top:0px;
+}
+
+.turn > div.pagediv {
+    opacity: 0;
+}
+
+div.pagediv.last-build {
+  opacity: 1;
+}
+
+div.wbox {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+div.rwbox {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
+  z-index:-1;
+}
+
+div.bump {
+  margin-top:100px;
+  margin-bottom:20px;
+}
+
+/* # BUILD EFFECTS AND SWANK ------------------------------------------------ */
+
+.boundbox > p {
+    opacity: 1;
+    width: auto;
+    text-align:right;
+}
+
+/* ## Turner                                                                  */
+.turner {
+  vertical-align: top;
+}
+
+.turner > div{
+  display: none;
+  /* height: 240px; */
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.turner > div.on {
+  opacity: 1;
+  display: initial;
+}
+
+/* ## Vanish                                                                  */
+/* (See also: kill) */
+
+.vanish {
+  max-width: 0px;
+  transition: max-width 2s ease-in 0.6s;
+}
+
+span.vanish {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+span.word {
+  white-space: nowrap;
+}
+
+.last-build .vanish {
+  max-width: 300px;
+}
+/* ## Over  (some sort of sliding overlay...?)                                */
+/* (this is why you should comment _while_ you code) */
+
+div.over {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40000px;
+  height: 600px;
+  margin-left: -350px;
+  margin-top: -270px;
+  text-align: left;
+  padding: 0px;
+
+  overflow-y: hidden;
+  overflow-x: visible;
+
+}
+
+div.build.over > * {
+  
+  transition: margin-left .6s ease-out;
+  -o-transition: margin-left .6s ease-out;
+  -moz-transition: margin-left .6s ease-out;
+  -webkit-transition: margin-left .6s ease-out;
+}
+
+div.over:before {
+  content: none;
+}
+
+div.over > div:before {
+  content:none;
+}
+
+div.over > div:after {
+  content: none;
+}
+
+.over > div {
+  padding: 0px;
+  width: 650px;
+  height: 500px;
+  margin-right: 150px;
+
+  display: inline-block;
+}
+
+.over > .in > div, .over > .out > div {
+  border-width: 3px;
+  border-color: black;
+  border-style: solid;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  padding: 15px;
+}
+
+.over > div:first-child {
+  border-style: none;
+  background: none;
+}
+
+.over div.in {
+  margin-left: -800px;
+}
+
+.over div.out {
+  margin-left: 800px;
+}
+
+.over .in.to-build {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.over .out.to-build {
+  margin-left: 0px;
+  opacity: 1;
+}
+/* ## Swap  (drop a div in place of another div)                              */
+div.swap {
+  width: 150px;
+  height: 1.5em;
+  display: inline-block;
+  overflow: visible;
+  vertical-align: top;
+}
+
+div.swap > * {
+  width: 1500px;
+  margin-left: -1500px;
+  display:inline-block;
+
+  vertical-align:top;
+  background: rgb(240, 240, 240);
+}
+
+div.swap > *:first-child {
+  margin-left: 0px;
+}
+
+.build.swap > * {
+  transition-property: opacity,margin-top;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
+  -o-transition-property: opacity,margin-top;
+  -o-transition-duration: 0.4s;
+  -o-transition-timing-function: ease-in-out;
+  -o-transition-delay: 0.2s;
+  -moz-transition-property: opacity,margin-top;
+  -moz-transition-duration: 0.4s;
+  -moz-transition-timing-function: ease-in-out;
+  -moz-transition-delay: 0.2s;
+  -webkit-transition-property: opacity,margin-top;
+  -webkit-transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-delay: 0.2s;
+}
+
+.swap > .to-build {
+  margin-top: 1.5em;
+  z-index: -1;
+}
+/* ## Pop  (fade-in)                                                          */
+.pop {
+  transition-property: opacity,margin-top;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  -o-transition-property: opacity,margin-top;
+  -o-transition-duration: 1s;
+  -o-transition-timing-function: ease-in-out;
+  -moz-transition-property: opacity,margin-top;
+  -moz-transition-duration: 1s;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-property: opacity,margin-top;
+  -webkit-transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+  
+}
+
+.pop > * {
+  transition: max-width 2s ease-in 0.6s;
+  -o-transition: max-width 2s ease-in 0.6s;
+  -moz-transition: max-width 2s ease-in 0.6s;
+  -webkit-transition: max-width 2s ease-in 0.6s;
+}
+
+.pop.to-build {
+    margin-top: -36px;
+    display: auto;
+}
+
+/* ## ipop  (sliding reveal)                                                  */
+/* Use with caution. Doesn't work well with line breaks. */
+/* TODO: 'pop' and 'ipop' aren't very descriptive names, in retrospect... */
+.ipop{
+
+  transition: max-width 2s ease-in-out 0.6s;
+  -o-transition: max-width 2s ease-in 0.6s;
+  -moz-transition: max-width 2s ease-in 0.6s;
+  -webkit-transition: max-width 2s ease-in 0.6s;
+}
+
+.ipop {
+  max-width: 1000px;
+  max-height: 36px;
+  overflow: hidden;
+  display: inline-flex;
+  font-weight: normal;
+} 
+
+.to-build.ipop {
+  max-width: 0px;
+  overflow: hidden;
+  font-style: italic;
+}
+
+.to-build > .ipop {
+  max-width: 0px;
+  overflow: hidden;
+  font-style: italic;
+}
+
+.to-build > * > .ipop {
+  max-width: 0px;
+  overflow: hidden;
+  font-style: italic;
+}
+/* ## land  (fade and zoom in to place)                                       */
+.land {
+    transition: transform .6s ease-out, opacity 1s ease-out;
+}
+
+.to-build.land {
+    transform: scale(3);
+    opacity: 0;
+}
+
+/* ## Scrlist  (scrolling text)                                               */
+/* There's probably a better way of doing this... */
+
+div.scrlist > * {
+  margin-top: -10000px;
+}
+
+div.scrlist.to-build > * {
+  margin-top: 0px;
+}
+
+div.scrlist.to-build {
+  opacity: 1;
+}
+
+
+
+/* # THE MAGIC WORDS -------------------------------------------------------- */
+
+.to-build {
+  opacity: 0;
+}
+
+.build.kill > *:not(.last-build), .kill > .build-me:not( .last-build ) {
+  display: none !important;
+}
+
+*[for='span']:not( body.mid *):not( body.right *):not( body.left * ) {
+  display:none;
+}
+
+body.left section.slides :not([for='span']),
+body.right section.slides :not([for='span']),
+body.mid section.slides :not([for='span']) {
+  display: none;
+}
+
+
+body.right section.slides article[for="span"]{
+  transform: scaleY(.5) scale(2) translate( -350px, -20px ) skewX( 7.5deg );
+}
+body.left section.slides article[for="span"]{
+  transform: scaleY( .5 ) scale(2) translate( 200px, -100px ) skewX( -7.5deg );
+  /* perspective(200px) rotateX(-20deg) */
+}
