@@ -17,6 +17,11 @@
        url(otf/cmunss.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Potsdam';
+  src: url('Potsdam.ttf');
+}
+
 @font-face{
   font-family: 'BKM-t';
   src: local('CMU Typewriter Text Bold'),
@@ -541,7 +546,7 @@ p, .lyr textarea, .lyr > span {
 }
 
 .lyr > div.pagediv {
-    margin-bottom: -230px;
+    margin-bottom: -290px;
 }
 
 .lyr > * > p {
@@ -904,7 +909,7 @@ body.mid section.slides :not([for='span']) {
 
 
 body.right section.slides article[for="span"]{
-  transform: scaleY(.5) scale(2) translate( -350px, -20px ) skewX( 7.5deg );
+  transform: scaleY(.5) scale(2) translate( -350px, -20px ) skewX(7.5deg );
 }
 body.left section.slides article[for="span"]{
   transform: scaleY( .5 ) scale(2) translate( 200px, -100px ) skewX( -7.5deg );
