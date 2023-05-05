@@ -508,6 +508,10 @@ article:not(.lyr) p.year {
     margin-top: 50px;
 }
 
+.kor {
+    font-style: italic;
+}
+
 /* # LYR -------------------------------------------------------------------- */
 
 p, .lyr textarea, .lyr > span {
